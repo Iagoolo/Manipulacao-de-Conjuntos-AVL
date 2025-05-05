@@ -4,9 +4,9 @@
 
 void clearTerminal() {
 #ifdef _WIN32
-    int _ = system("cls"); // Windows
+    system("cls"); // Windows
 #else
-    int _ =  system("clear"); // Unix/Linux/Mac
+    [[maybe_unused]] int _ =  system("clear"); // Unix/Linux/Mac
 #endif
 }
 
