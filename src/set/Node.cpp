@@ -1,4 +1,4 @@
-#include "Set/Node.hpp"
+#include "set/Node.hpp"
 
 Node::Node(int value, Node* left, Node* right, int height) {
     this->data = value;

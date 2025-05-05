@@ -3,7 +3,7 @@
 #include <vector>
 #include <unordered_map>
 #include <limits>
-#include "Set/Set.hpp"
+#include "set/Set.hpp"
 #include "clear/clear.hpp"
 
 int main() {
@@ -26,7 +26,8 @@ int main() {
                   << "10. Remover elemento\n"
                   << "11. Verificar se elemento está contido\n"
                   << "12. Trocar conteúdo de dois conjuntos\n"
-                  << "13. Sair\n\n"
+                  << "13. Apagar todos os elementos de um conjunto\n"
+                  << "14. Sair\n\n"
                   << "Escolha: ";
 
         std::string entrada;
@@ -428,7 +429,28 @@ int main() {
                 }
                 break;
             }
-            case 13:
+            case 13:{
+
+                std:: cout << "Selecione o conjunto: \n";
+                for (const auto& par : conjuntos) {
+                    std::cout << "- " << par.first << '\n';
+                }
+                std::cout << "Nome do conjunto: ";
+                std::getline(std::cin, nome);
+                if (conjuntos.count(nome)) {
+                    if (conjuntos[nome].empty()) {
+                        std::cout << "Conjunto já está vazio.\n";
+                        break;
+                    } 
+                    conjuntos[nome].clear();
+                    std::cout << "Conjunto '" << nome << "' limpo.\n";
+                } else {
+                    std::cout << "Conjunto inexistente.\n";
+                }
+
+                break;
+            }
+            case 14:
                 std::cout << "Saindo...\n";
                 return 0;
             default:

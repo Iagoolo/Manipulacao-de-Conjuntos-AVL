@@ -1,4 +1,4 @@
-#include "Set/Set.hpp"
+#include "set/Set.hpp"
 
 // Métodos privados
 Node* Set::_copy(Node* node) {
@@ -333,7 +333,9 @@ int Set::maximum() {
 }
 
 void Set::swap(Set& other) {
-    std::swap(root, other.root);
+    Node* temp = root;
+    root = other.root;
+    other.root = temp;
 }
 
 void Set::print() const {
